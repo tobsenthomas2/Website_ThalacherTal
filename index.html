@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Dackelzucht vom Schönen Thalacher Tal | Liebevolle Welpen</title>
+    <meta name="description" content="Liebevolle und seriöse Dackelzucht 'vom Schönen Thalacher Tal'. Entdecken Sie unsere Hündinnen, aktuelle Würfe und unsere Philosophie der Hausaufzucht.">
+    <meta name="keywords" content="Dackelzucht, Dackelwelpen, Dackel vom Schönen Thalacher Tal, Welpen kaufen, Rauhhaardackel, seriöse Zucht">
+    
+    <!-- Google Fonts: Lora for elegant, classic headings and Nunito for warm, readable body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS Setup with Custom Theme Colors -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'earth-dark': '#3E362E', // Deep brown for text
+                        'earth-medium': '#8B7355', // Warm brown for accents
+                        'green-soft': '#5C715E', // Muted natural green for primary actions
+                        'green-hover': '#4A5B4B',
+                        'cream-light': '#F9F6F0', // Main background
+                        'cream-dark': '#EFEBE1',  // Alternate section background
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Lightbox and Animations -->
+    <style>
+        body {
+            background-color: #F9F6F0;
+            color: #3E362E;
+        }
+        
+        .gallery-image {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hide scrollbar for gallery if horizontal */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Lightbox Fade In */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-cream-light/95 backdrop-blur-sm shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Zwingernamen -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl md:text-3xl font-bold text-green-soft flex items-center gap-2">
+                        <i class="fa-solid fa-paw text-earth-medium"></i>
+                        <span class="hidden sm:block">vom Schönen Thalacher Tal</span>
+                        <span class="block sm:hidden">Thalacher Tal</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#start" class="text-earth-dark hover:text-green-soft font-semibold transition-colors">Startseite</a>
+                    <a href="#huendinnen" class="text-earth-dark hover:text-green-soft font-semibold transition-colors">Unsere Hündinnen</a>
+                    <a href="#welpen" class="text-earth-dark hover:text-green-soft font-semibold transition-colors">Welpen & Würfe</a>
+                    <a href="#zwinger" class="text-earth-dark hover:text-green-soft font-semibold transition-colors">Über uns</a>
+                    <a href="#kontakt" class="text-earth-dark hover:text-green-soft font-semibold transition-colors">Kontakt</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-earth-dark hover:text-green-soft focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-light border-t border-cream-dark">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#start" class="block px-3 py-2 text-earth-dark font-medium hover:bg-cream-dark rounded-md">Startseite</a>
+                <a href="#huendinnen" class="block px-3 py-2 text-earth-dark font-medium hover:bg-cream-dark rounded-md">Unsere Hündinnen</a>
+                <a href="#welpen" class="block px-3 py-2 text-earth-dark font-medium hover:bg-cream-dark rounded-md">Welpen & Würfe</a>
+                <a href="#zwinger" class="block px-3 py-2 text-earth-dark font-medium hover:bg-cream-dark rounded-md">Über uns</a>
+                <a href="#kontakt" class="block px-3 py-2 text-earth-dark font-medium hover:bg-cream-dark rounded-md">Kontakt</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="start" class="relative pt-20 pb-12 lg:pt-28 lg:pb-24 overflow-hidden min-h-[80vh] flex items-center">
+        <!-- Hero Background Image (Placeholder simulating nature/dachshund) -->
+        <div class="absolute inset-0 z-0">
+            <img src="Fotos/Anfang.jpg" alt="Dackel in der Natur" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
+            <div class="absolute inset-0 bg-gradient-to-r from-cream-light/90 via-cream-light/70 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl">
+                <span class="uppercase tracking-widest text-sm font-bold text-earth-medium mb-4 block">Liebevolle Familienzucht</span>
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-earth-dark leading-tight mb-6">
+                    Willkommen bei den Dackeln <br/>
+                    <span class="text-green-soft italic">vom Schönen Thalacher Tal</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-earth-dark/80 mb-8 font-light">
+                    Wir züchten mit Herz, Verstand und großer Leidenschaft gesunde und wesensfeste Dackel. Unsere Welpen wachsen mitten in der Familie auf und sind der perfekte Begleiter fürs Leben.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#welpen" class="bg-green-soft hover:bg-green-hover text-white px-8 py-3 rounded-full text-center font-semibold transition-all shadow-md">
+                        Aktuelle Wurfplanung
+                    </a>
+                    <a href="#huendinnen" class="bg-transparent border-2 border-earth-medium text-earth-medium hover:bg-earth-medium hover:text-white px-8 py-3 rounded-full text-center font-semibold transition-all">
+                        Unsere Hündinnen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophie Section -->
+    <section class="py-16 bg-cream-dark">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <i class="fa-solid fa-heart text-3xl text-earth-medium mb-4"></i>
+            <h2 class="font-serif text-3xl md:text-4xl text-earth-dark mb-6">Unsere Philosophie</h2>
+            <p class="text-lg text-earth-dark/80 leading-relaxed">
+                Gesundheit, ein einwandfreier Charakter und die typische Dackel-Persönlichkeit stehen bei uns an erster Stelle. 
+                Wir legen größten Wert auf eine familiäre Aufzucht im Haus und Garten, damit unsere Welpen bestens sozialisiert 
+                und furchtlos in ihr neues Leben starten können. Eine artgerechte Prägung und viel Liebe sind der Grundstein unserer Zucht.
+            </p>
+        </div>
+    </section>
+
+    <!-- Unsere Hündinnen -->
+    <section id="huendinnen" class="py-20 bg-cream-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl text-earth-dark mb-4">Unsere Hündinnen</h2>
+                <div class="w-24 h-1 bg-green-soft mx-auto rounded-full"></div>
+                <p class="mt-4 text-earth-dark/70">Lernen Sie die stolzen Mütter unserer Zucht kennen.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Hündin 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-cream-dark transition-transform hover:-translate-y-2 duration-300">
+                    <img src="Fotos/Ema.jpg" alt="Hündin Ema" class="w-full h-72 object-cover">
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-bold text-green-soft mb-2">Ema</h3>
+                        <p class="text-sm text-earth-medium font-semibold mb-6 uppercase tracking-wide">Rauhhaardackel Standard</p>
+                        
+                        <div class="space-y-3 text-earth-dark/80 mb-6">
+                            <p><strong>Geburtsdatum:</strong> 15.04.2020</p>
+                            <p><strong>Farbe:</strong> Saufarben</p>
+                            <p><strong>Charakter:</strong> Verschmust, aufmerksam, sehr kinderlieb und mit einem ausgeprägten "Will to please".</p>
+                        </div>
+                        
+                        <div class="bg-cream-dark p-4 rounded-xl">
+                            <h4 class="font-semibold text-earth-dark mb-2"><i class="fa-solid fa-stethoscope mr-2 text-green-soft"></i>Gesundheit & Zuchtzulassung</h4>
+                            <ul class="text-sm space-y-1 text-earth-dark/80">
+                                <li>• Frei von PRA und Katarakt</li>
+                                <li>• OI-frei (Glasknochenkrankheit)</li>
+                                <li>• Formwert: Vorzüglich</li>
+                                <li>• Uneingeschränkte Zuchtzulassung</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hündin 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-cream-dark transition-transform hover:-translate-y-2 duration-300">
+                    <img src="Fotos/Bea.jpg" alt="Hündin Bea" class="w-full h-72 object-cover">
+                    <div class="p-8">
+                        <h3 class="font-serif text-2xl font-bold text-green-soft mb-2">Bea</h3>
+                        <p class="text-sm text-earth-medium font-semibold mb-6 uppercase tracking-wide">Zwergdackel Kurzhaar</p>
+                        
+                        <div class="space-y-3 text-earth-dark/80 mb-6">
+                            <p><strong>Geburtsdatum:</strong> 02.11.2021</p>
+                            <p><strong>Farbe:</strong> Rot</p>
+                            <p><strong>Charakter:</strong> Temperamentvoll, neugierig, absolut furchtlos und ein echter kleiner Clown im Alltag.</p>
+                        </div>
+                        
+                        <div class="bg-cream-dark p-4 rounded-xl">
+                            <h4 class="font-semibold text-earth-dark mb-2"><i class="fa-solid fa-stethoscope mr-2 text-green-soft"></i>Gesundheit & Zuchtzulassung</h4>
+                            <ul class="text-sm space-y-1 text-earth-dark/80">
+                                <li>• Frei von PRA und Katarakt</li>
+                                <li>• Furnishing: F/F</li>
+                                <li>• Formwert: Vorzüglich 1 (VDH)</li>
+                                <li>• Uneingeschränkte Zuchtzulassung</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welpen & Würfe (Galerie) -->
+    <section id="welpen" class="py-20 bg-cream-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="font-serif text-4xl text-earth-dark mb-4">Welpen & Würfe</h2>
+                <div class="w-24 h-1 bg-green-soft mx-auto rounded-full mb-8"></div>
+                
+                <!-- Status Banner -->
+                <div class="inline-block bg-white border-2 border-earth-medium px-6 py-4 rounded-2xl shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <span class="flex h-3 w-3 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-earth-medium opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-earth-medium"></span>
+                        </span>
+                        <p class="text-earth-dark font-semibold text-lg">Wurfplanung: <span class="text-earth-medium font-normal">Aktuell sind alle Welpen vergeben. Unser nächster Wurf ist für 2027 geplant.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bildergalerie B-Wurf -->
+            <div class="mb-12 max-w-4xl mx-auto">
+                <h3 class="font-serif text-2xl text-earth-dark mb-6 flex items-center gap-2 justify-center">
+                    <i class="fa-solid fa-camera-retro text-earth-medium"></i> Galerie
+                </h3>
+                
+                <!-- Carousel Container -->
+                <div class="relative rounded-2xl overflow-hidden shadow-xl bg-white">
+                    <!-- Main Image (Clickable for Lightbox) -->
+                    <div class="aspect-video sm:aspect-[4/3] w-full cursor-pointer bg-cream-dark relative group" onclick="openCurrentGalleryImageInLightbox()">
+                        <img id="main-gallery-image" src="" alt="Welpe" class="w-full h-full object-cover transition-opacity duration-300">
+                        
+                        <!-- Hover Overlay (Tipp für User) -->
+                        <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-black/50 text-white px-4 py-2 rounded-full backdrop-blur-sm flex items-center gap-2">
+                                <i class="fa-solid fa-expand"></i>
+                                <span>Vollbild</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button onclick="prevGalleryImage(event)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-earth-dark w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm transition-all focus:outline-none z-10">
+                        <i class="fa-solid fa-chevron-left text-xl"></i>
+                    </button>
+                    <button onclick="nextGalleryImage(event)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-earth-dark w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm transition-all focus:outline-none z-10">
+                        <i class="fa-solid fa-chevron-right text-xl"></i>
+                    </button>
+                    
+                    <!-- Image Counter / Caption -->
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 flex flex-col sm:flex-row sm:justify-between sm:items-end pointer-events-none">
+                        <p id="gallery-caption" class="text-white text-sm sm:text-base font-light drop-shadow-md"></p>
+                        <span id="gallery-counter" class="text-white/90 text-xs sm:text-sm font-semibold tracking-wider mt-1 sm:mt-0"></span>
+                    </div>
+                </div>
+
+                <!-- Thumbnails -->
+                <div class="flex gap-3 mt-4 overflow-x-auto pb-2 no-scrollbar" id="gallery-thumbnails">
+                    <!-- Thumbnails werden über JavaScript generiert -->
+                </div>
+            </div>
+            
+            <p class="text-center text-sm text-earth-dark/60 mt-4">Klicken Sie auf das Bild, um es zu vergrößern. Nutzen Sie die Pfeile zum Navigieren.</p>
+        </div>
+    </section>
+
+    <!-- Über den Zwinger (Das Thalacher Tal) -->
+    <section id="zwinger" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2">
+                    <img src="Fotos/Garten.jpg" alt="Aufzucht im Haus und Garten" class="rounded-3xl shadow-xl w-full h-auto object-cover">
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <h2 class="font-serif text-4xl text-earth-dark mb-6">Aufwachsen im schönen Thalacher Tal</h2>
+                    <p class="text-lg text-earth-dark/80 mb-6 leading-relaxed">
+                        Unser Zwinger liegt idyllisch eingebettet im Grünen. Hier haben unsere Hunde viel Platz zum Toben, Schnüffeln und Dackel-Sein. 
+                    </p>
+                    <p class="text-lg text-earth-dark/80 mb-6 leading-relaxed">
+                        <strong>Alltagsprägung pur:</strong> Die Wurfkiste steht direkt in unserem Wohnzimmer. Von Tag eins an lernen die Welpen sämtliche Alltagsgeräusche (Staubsauger, Radio, klappernde Töpfe) kennen. Sobald sie alt genug sind, dürfen sie unseren gesicherten Welpengarten erkunden.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-cream-dark p-3 rounded-full text-green-soft">
+                                <i class="fa-solid fa-house-chimney text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-earth-dark">Hausaufzucht</h4>
+                                <p class="text-sm text-earth-dark/70">Mitten in der Familie, keine Zwingerhaltung.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-cream-dark p-3 rounded-full text-green-soft">
+                                <i class="fa-solid fa-tree text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-earth-dark">Natur pur</h4>
+                                <p class="text-sm text-earth-dark/70">Garten für erste Erkundungstouren.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-cream-dark p-3 rounded-full text-green-soft">
+                                <i class="fa-solid fa-cat text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-earth-dark">Sozialisierung</h4>
+                                <p class="text-sm text-earth-dark/70">Gewöhnung an Kinder, Katzen und andere Hunde.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-cream-dark p-3 rounded-full text-green-soft">
+                                <i class="fa-solid fa-car text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-earth-dark">Ausflüge</h4>
+                                <p class="text-sm text-earth-dark/70">Erste kleine Autofahrten vor Abgabe.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt & Anfahrt -->
+    <section id="kontakt" class="py-20 bg-cream-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl text-earth-dark mb-4">Kontakt & Anfahrt</h2>
+                <div class="w-24 h-1 bg-green-soft mx-auto rounded-full"></div>
+                <p class="mt-4 text-earth-dark/70">Wir freuen uns darauf, Sie kennenzulernen!</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-white rounded-3xl p-8 lg:p-12 shadow-lg border border-cream-dark text-center">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-serif text-2xl text-green-soft mb-4">Hier finden Sie uns</h3>
+                        <p class="text-earth-dark/80 mb-2">
+                            Wir bevorzugen den persönlichen Kontakt. Rufen Sie uns gerne an oder schreiben Sie uns eine ausführliche E-Mail über Ihre Motivation, einem Dackel ein Zuhause zu geben.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-10 text-earth-dark mt-10">
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-cream-dark flex items-center justify-center text-green-soft text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <p class="font-semibold">Adresse</p>
+                            <p class="text-sm">Musterstraße 12<br>12345 Thalacher Tal</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-cream-dark flex items-center justify-center text-green-soft text-xl">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <p class="font-semibold">Telefon</p>
+                            <p class="text-sm">+49 (0) 123 456789</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-cream-dark flex items-center justify-center text-green-soft text-xl">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <p class="font-semibold">E-Mail</p>
+                            <p class="text-sm">info@dackelzucht<br>-thalacher-tal.de</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Züchterin Profil -->
+            <div class="mt-16 flex flex-col items-center justify-center text-center">
+                <img src="Fotos/Bild_mit_Zuechterin.jpg" alt="Ihre Züchterin" class="w-48 h-48 sm:w-56 sm:h-56 object-cover rounded-full shadow-xl border-4 border-white mb-6">
+                <h3 class="font-serif text-3xl text-earth-dark font-bold">[Name der Züchterin]</h3>
+                <p class="text-earth-medium uppercase tracking-wider text-sm font-semibold mt-2">Ihre Züchterin</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-earth-dark text-cream-light py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <p class="font-serif text-xl font-bold mb-2">vom Schönen Thalacher Tal</p>
+                <p class="text-sm text-cream-light/70">Liebevolle Dackelzucht seit 2015</p>
+            </div>
+            <div class="flex gap-6 text-sm text-cream-light/80">
+                <a href="#impressum" class="hover:text-white transition-colors">Impressum</a>
+                <a href="#datenschutz" class="hover:text-white transition-colors">Datenschutzerklärung</a>
+            </div>
+            <div class="text-sm text-cream-light/60">
+                &copy; 2026 Dackelzucht vom Schönen Thalacher Tal. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[60] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-gray-300 focus:outline-none p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+            <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+        <div class="max-w-4xl w-full flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Großansicht" class="max-h-[80vh] w-auto object-contain rounded-lg shadow-2xl">
+            <p id="lightbox-caption" class="text-white mt-4 text-center text-lg font-light"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript für Menü, Lightbox und Formular -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Schließe Menü bei Klick auf einen Link
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Lightbox Funktionalität
+        function openLightbox(imageSrc, captionText) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImg.src = imageSrc;
+            lightboxCaption.textContent = captionText;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Scrollen im Hintergrund verhindern
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = 'auto'; // Scrollen wieder aktivieren
+        }
+
+        // Lightbox schließen bei Klick außerhalb des Bildes
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Lightbox schließen mit Escape-Taste
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !document.getElementById('lightbox').classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+
+        // --- Neu: Bildergalerie / Carousel Logik ---
+        const galleryData = [
+            { src: 'Fotos/20241226_101612.jpg', thumb: 'Fotos/20241226_101612.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/20250208_091005.jpg', thumb: 'Fotos/20250208_091005.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/20250208_091049.jpg', thumb: 'Fotos/20250208_091049.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/9e09c8f1-7445-4214-a885-759d290f0a58.jpeg', thumb: 'Fotos/9e09c8f1-7445-4214-a885-759d290f0a58.jpeg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/DSC_0261.JPG', thumb: 'Fotos/DSC_0261.JPG', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/DSC_0605.JPG', thumb: 'Fotos/DSC_0605.JPG', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/DSC_0662.JPG', thumb: 'Fotos/DSC_0662.JPG', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/DSC_0688.JPG', thumb: 'Fotos/DSC_0688.JPG', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG_20190120_134230.jpg', thumb: 'Fotos/IMG_20190120_134230.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG_20200926_122007.jpg', thumb: 'Fotos/IMG_20200926_122007.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20180410-WA0005.jpg', thumb: 'Fotos/IMG-20180410-WA0005.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20181015-WA0002.jpg', thumb: 'Fotos/IMG-20181015-WA0002.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20181026-WA0006.jpg', thumb: 'Fotos/IMG-20181026-WA0006.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20181026-WA0008.jpg', thumb: 'Fotos/IMG-20181026-WA0008.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20190505-WA0005.jpg', thumb: 'Fotos/IMG-20190505-WA0005.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20190512-WA0008.jpg', thumb: 'Fotos/IMG-20190512-WA0008.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20200814-WA0011.jpg', thumb: 'Fotos/IMG-20200814-WA0011.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20200823-WA0002.jpg', thumb: 'Fotos/IMG-20200823-WA0002.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20200923-WA0012.jpg', thumb: 'Fotos/IMG-20200923-WA0012.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20200923-WA0016.jpg', thumb: 'Fotos/IMG-20200923-WA0016.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20200923-WA0020.jpg', thumb: 'Fotos/IMG-20200923-WA0020.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20211113-WA0002.jpg', thumb: 'Fotos/IMG-20211113-WA0002.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20211122-WA0002.jpg', thumb: 'Fotos/IMG-20211122-WA0002.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20211126-WA0013.jpg', thumb: 'Fotos/IMG-20211126-WA0013.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20211126-WA0019.jpg', thumb: 'Fotos/IMG-20211126-WA0019.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20211213-WA0001.jpg', thumb: 'Fotos/IMG-20211213-WA0001.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20230830-WA0004.jpg', thumb: 'Fotos/IMG-20230830-WA0004.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20231028-WA0002.jpg', thumb: 'Fotos/IMG-20231028-WA0002.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20231030-WA0010.jpg', thumb: 'Fotos/IMG-20231030-WA0010.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20231110-WA0000.jpg', thumb: 'Fotos/IMG-20231110-WA0000.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20231117-WA0000.jpg', thumb: 'Fotos/IMG-20231117-WA0000.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20231117-WA0002.jpg', thumb: 'Fotos/IMG-20231117-WA0002.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20231216-WA0000.jpg', thumb: 'Fotos/IMG-20231216-WA0000.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20241117-WA0003.jpg', thumb: 'Fotos/IMG-20241117-WA0003.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20241124-WA0003.jpg', thumb: 'Fotos/IMG-20241124-WA0003.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20241202-WA0006.jpg', thumb: 'Fotos/IMG-20241202-WA0006.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20241202-WA0021.jpg', thumb: 'Fotos/IMG-20241202-WA0021.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20250101-WA0000.jpg', thumb: 'Fotos/IMG-20250101-WA0000.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20250108-WA0001.jpg', thumb: 'Fotos/IMG-20250108-WA0001.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20250108-WA0007.jpg', thumb: 'Fotos/IMG-20250108-WA0007.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20250108-WA0009.jpg', thumb: 'Fotos/IMG-20250108-WA0009.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20250108-WA0020.jpg', thumb: 'Fotos/IMG-20250108-WA0020.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20250108-WA0022.jpg', thumb: 'Fotos/IMG-20250108-WA0022.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20250108-WA0023.jpg', thumb: 'Fotos/IMG-20250108-WA0023.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20250108-WA0024.jpg', thumb: 'Fotos/IMG-20250108-WA0024.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20250210-WA0003.jpg', thumb: 'Fotos/IMG-20250210-WA0003.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20250430-WA0002.jpg', thumb: 'Fotos/IMG-20250430-WA0002.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/IMG-20260219-WA0012.jpg', thumb: 'Fotos/IMG-20260219-WA0012.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/Laura & Tobi-525.jpg', thumb: 'Fotos/Laura & Tobi-525.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' },
+            { src: 'Fotos/Laura & Tobi-548.jpg', thumb: 'Fotos/Laura & Tobi-548.jpg', alt: 'Dackelwelpe', caption: 'Unsere Dackel vom Schönen Thalacher Tal' }
+        ];
+
+        let currentGalleryIndex = 0;
+        
+        function updateGallery(index) {
+            const mainImage = document.getElementById('main-gallery-image');
+            const captionText = document.getElementById('gallery-caption');
+            const counterText = document.getElementById('gallery-counter');
+            const thumbnailsContainer = document.getElementById('gallery-thumbnails');
+            
+            if (!mainImage) return;
+
+            currentGalleryIndex = index;
+            const data = galleryData[index];
+            
+            // Leichter Fade-Effekt beim Wechseln
+            mainImage.style.opacity = 0.5;
+            setTimeout(() => {
+                mainImage.src = data.src;
+                mainImage.alt = data.alt;
+                captionText.textContent = data.caption;
+                counterText.textContent = `${index + 1} / ${galleryData.length}`;
+                mainImage.style.opacity = 1;
+            }, 150);
+
+            // Update Thumbnails Styling
+            Array.from(thumbnailsContainer.children).forEach((thumb, i) => {
+                if (i === index) {
+                    thumb.classList.add('ring-4', 'ring-green-soft', 'opacity-100');
+                    thumb.classList.remove('opacity-50');
+                } else {
+                    thumb.classList.remove('ring-4', 'ring-green-soft', 'opacity-100');
+                    thumb.classList.add('opacity-50');
+                }
+            });
+        }
+
+        function nextGalleryImage(e) {
+            if(e) e.stopPropagation(); // Verhindert, dass sich die Lightbox beim Klick auf den Pfeil öffnet
+            let nextIndex = (currentGalleryIndex + 1) % galleryData.length;
+            updateGallery(nextIndex);
+        }
+
+        function prevGalleryImage(e) {
+            if(e) e.stopPropagation(); // Verhindert, dass sich die Lightbox beim Klick auf den Pfeil öffnet
+            let prevIndex = (currentGalleryIndex - 1 + galleryData.length) % galleryData.length;
+            updateGallery(prevIndex);
+        }
+
+        function openCurrentGalleryImageInLightbox() {
+            const data = galleryData[currentGalleryIndex];
+            openLightbox(data.src, data.caption);
+        }
+
+        function initGallery() {
+            const thumbnailsContainer = document.getElementById('gallery-thumbnails');
+            if (!thumbnailsContainer) return;
+            
+            // Thumbnails generieren
+            galleryData.forEach((data, index) => {
+                const img = document.createElement('img');
+                img.src = data.thumb;
+                img.alt = `Vorschau ${index + 1}`;
+                img.className = 'w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer transition-all hover:opacity-100 flex-shrink-0 opacity-50';
+                img.onclick = () => updateGallery(index);
+                thumbnailsContainer.appendChild(img);
+            });
+            
+            // Erstes Bild laden
+            updateGallery(0);
+        }
+
+        // Galerie beim Laden der Seite initialisieren
+        document.addEventListener('DOMContentLoaded', initGallery);
+    </script>
+</body>
+</html>
