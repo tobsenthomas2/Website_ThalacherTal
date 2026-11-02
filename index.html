@@ -169,7 +169,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Hündin 1 -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-cream-dark transition-transform hover:-translate-y-2 duration-300">
-                    <img src="Fotos/Ema.jpg" alt="Hündin Ema" class="w-full h-72 object-cover">
+                    <img src="Fotos/Ema.jpg" alt="Hündin Ema" class="w-full h-80 sm:h-96 object-cover object-center">
                     <div class="p-8">
                         <h3 class="font-serif text-2xl font-bold text-green-soft mb-2">Ema</h3>
                         <p class="text-sm text-earth-medium font-semibold mb-6 uppercase tracking-wide">Rauhhaardackel Standard</p>
@@ -194,7 +194,7 @@
 
                 <!-- Hündin 2 -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-cream-dark transition-transform hover:-translate-y-2 duration-300">
-                    <img src="Fotos/Bea.jpg" alt="Hündin Bea" class="w-full h-72 object-cover">
+                    <img src="Fotos/Bea.jpg" alt="Hündin Bea" class="w-full h-80 sm:h-96 object-cover object-[center_62%]">
                     <div class="p-8">
                         <h3 class="font-serif text-2xl font-bold text-green-soft mb-2">Bea</h3>
                         <p class="text-sm text-earth-medium font-semibold mb-6 uppercase tracking-wide">Zwergdackel Kurzhaar</p>
@@ -246,32 +246,35 @@
                 </h3>
                 
                 <!-- Carousel Container -->
-                <div class="relative rounded-2xl overflow-hidden shadow-xl bg-white">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl bg-earth-dark">
                     <!-- Main Image (Clickable for Lightbox) -->
-                    <div class="aspect-video sm:aspect-[4/3] w-full cursor-pointer bg-cream-dark relative group" onclick="openCurrentGalleryImageInLightbox()">
-                        <img id="main-gallery-image" src="" alt="Welpe" class="w-full h-full object-cover transition-opacity duration-300">
+                    <div class="aspect-[4/3] sm:aspect-[16/10] w-full cursor-pointer bg-earth-dark relative group overflow-hidden flex items-center justify-center" onclick="openCurrentGalleryImageInLightbox()">
+                        <!-- Weichgezeichneter Hintergrund füllt das Format bei Hochkant- und Querformatbildern ohne jedes Abschneiden -->
+                        <img id="bg-gallery-image" src="" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-40 pointer-events-none select-none transition-opacity duration-300">
+                        <!-- Vollständiges Hauptbild (object-contain verhindert jegliches Abschneiden) -->
+                        <img id="main-gallery-image" src="" alt="Welpe" class="relative z-10 w-full h-full object-contain transition-opacity duration-300">
                         
                         <!-- Hover Overlay (Tipp für User) -->
-                        <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="bg-black/50 text-white px-4 py-2 rounded-full backdrop-blur-sm flex items-center gap-2">
+                        <div class="absolute inset-0 z-20 bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="bg-black/60 text-white px-4 py-2 rounded-full backdrop-blur-sm flex items-center gap-2">
                                 <i class="fa-solid fa-expand"></i>
                                 <span>Vollbild</span>
                             </div>
                         </div>
+
+                        <!-- Navigation Arrows -->
+                        <button onclick="prevGalleryImage(event)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white text-earth-dark w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm transition-all focus:outline-none z-30">
+                            <i class="fa-solid fa-chevron-left text-xl"></i>
+                        </button>
+                        <button onclick="nextGalleryImage(event)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/85 hover:bg-white text-earth-dark w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm transition-all focus:outline-none z-30">
+                            <i class="fa-solid fa-chevron-right text-xl"></i>
+                        </button>
                     </div>
                     
-                    <!-- Navigation Arrows -->
-                    <button onclick="prevGalleryImage(event)" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-earth-dark w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm transition-all focus:outline-none z-10">
-                        <i class="fa-solid fa-chevron-left text-xl"></i>
-                    </button>
-                    <button onclick="nextGalleryImage(event)" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-earth-dark w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm transition-all focus:outline-none z-10">
-                        <i class="fa-solid fa-chevron-right text-xl"></i>
-                    </button>
-                    
-                    <!-- Image Counter / Caption -->
-                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 flex flex-col sm:flex-row sm:justify-between sm:items-end pointer-events-none">
-                        <p id="gallery-caption" class="text-white text-sm sm:text-base font-light drop-shadow-md"></p>
-                        <span id="gallery-counter" class="text-white/90 text-xs sm:text-sm font-semibold tracking-wider mt-1 sm:mt-0"></span>
+                    <!-- Image Counter / Caption unterhalb des Bildes, damit nichts überdeckt wird -->
+                    <div class="bg-earth-dark px-5 py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center border-t border-white/10">
+                        <p id="gallery-caption" class="text-cream-light text-sm sm:text-base font-light"></p>
+                        <span id="gallery-counter" class="text-cream-light/80 text-xs sm:text-sm font-semibold tracking-wider mt-1 sm:mt-0"></span>
                     </div>
                 </div>
 
@@ -535,6 +538,7 @@
         
         function updateGallery(index) {
             const mainImage = document.getElementById('main-gallery-image');
+            const bgImage = document.getElementById('bg-gallery-image');
             const captionText = document.getElementById('gallery-caption');
             const counterText = document.getElementById('gallery-counter');
             const thumbnailsContainer = document.getElementById('gallery-thumbnails');
@@ -546,12 +550,15 @@
             
             // Leichter Fade-Effekt beim Wechseln
             mainImage.style.opacity = 0.5;
+            if (bgImage) bgImage.style.opacity = 0.2;
             setTimeout(() => {
                 mainImage.src = data.src;
                 mainImage.alt = data.alt;
+                if (bgImage) bgImage.src = data.src;
                 captionText.textContent = data.caption;
                 counterText.textContent = `${index + 1} / ${galleryData.length}`;
                 mainImage.style.opacity = 1;
+                if (bgImage) bgImage.style.opacity = 0.4;
             }, 150);
 
             // Update Thumbnails Styling
@@ -559,6 +566,8 @@
                 if (i === index) {
                     thumb.classList.add('ring-4', 'ring-green-soft', 'opacity-100');
                     thumb.classList.remove('opacity-50');
+                    const scrollTarget = thumb.offsetLeft - (thumbnailsContainer.clientWidth / 2) + (thumb.clientWidth / 2);
+                    thumbnailsContainer.scrollTo({ left: Math.max(0, scrollTarget), behavior: 'smooth' });
                 } else {
                     thumb.classList.remove('ring-4', 'ring-green-soft', 'opacity-100');
                     thumb.classList.add('opacity-50');
